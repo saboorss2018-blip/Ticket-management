@@ -1,0 +1,377 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #222;
+}
+
+header {
+    background: #111827;
+    color: white;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+}
+
+.hero {
+    min-height: 430px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #9333ea
+        );
+
+    color: white;
+}
+
+.hero h1 {
+    font-size: 52px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.hero-button {
+    background: white;
+    color: #4f46e5;
+    padding: 14px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.events {
+    padding: 70px 8%;
+}
+
+.events h2 {
+    text-align: center;
+    font-size: 38px;
+}
+
+.section-text {
+    text-align: center;
+    margin: 10px 0 40px;
+    color: #666;
+}
+
+.event-container {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(300px, 1fr));
+
+    gap: 30px;
+}
+
+.event-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s;
+}
+
+.event-card:hover {
+    transform: translateY(-6px);
+}
+
+.event-image {
+    height: 180px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 75px;
+}
+
+.party {
+    background: #fef3c7;
+}
+
+.marriage {
+    background: #fce7f3;
+}
+
+.concert {
+    background: #dbeafe;
+}
+
+.birthday {
+    background: #dcfce7;
+}
+
+.cultural {
+    background: #f3e8ff;
+}
+
+.sports {
+    background: #cffafe;
+}
+
+.event-content {
+    padding: 25px;
+}
+
+.category {
+    font-size: 12px;
+    font-weight: bold;
+    color: #4f46e5;
+}
+
+.event-content h3 {
+    margin: 10px 0;
+    font-size: 22px;
+}
+
+.event-content p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.event-info {
+    margin: 8px 0;
+    color: #555;
+}
+
+.event-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+button {
+    border: none;
+    background: #4f46e5;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #3730a3;
+}
+
+
+/* MODAL */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    z-index: 1000;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.6);
+
+    overflow: auto;
+}
+
+.modal-content {
+    background: white;
+
+    width: 90%;
+    max-width: 550px;
+
+    margin: 5% auto;
+
+    padding: 35px;
+
+    border-radius: 15px;
+
+    position: relative;
+}
+
+.close {
+    position: absolute;
+
+    right: 20px;
+    top: 15px;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+.selected-event {
+    background: #f3f4f6;
+
+    padding: 20px;
+
+    margin: 20px 0;
+
+    border-radius: 10px;
+}
+
+form label {
+    display: block;
+
+    margin-top: 15px;
+
+    margin-bottom: 7px;
+
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 7px;
+
+    font-size: 15px;
+}
+
+.bill-preview {
+    margin-top: 25px;
+
+    padding: 20px;
+
+    background: #f9fafb;
+
+    border-radius: 10px;
+
+    line-height: 2;
+}
+
+.bill-preview span {
+    float: right;
+}
+
+.total {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.confirm-button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+}
+
+
+/* BILL */
+
+.bill {
+    background: white;
+
+    width: 90%;
+    max-width: 500px;
+
+    margin: 5% auto;
+
+    padding: 35px;
+
+    border-radius: 15px;
+
+    line-height: 2;
+}
+
+.bill h2,
+.bill h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.success {
+    background: #dcfce7;
+
+    color: #166534;
+
+    text-align: center;
+
+    padding: 10px;
+
+    border-radius: 7px;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+.thank-you {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.about {
+    background: white;
+    padding: 70px 10%;
+    text-align: center;
+}
+
+.about h2 {
+    margin-bottom: 20px;
+}
+
+footer {
+    background: #111827;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+
+@media(max-width:700px) {
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0 8px;
+    }
+
+}
