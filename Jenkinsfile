@@ -35,9 +35,9 @@ pipeline {
                 echo 'Running SonarQube analysis'
 
                 sh '''
-                    sonar-scanner \
-                    -Dsonar.projectKey=event-ticket \
-                    -Dsonar.sources=backend
+                   	/opt/sonar-scanner/bin/sonar-scanner \
+			-Dsonar.projectKey=event-ticket \
+			-Dsonar.sources=backend
                 '''
             }
         }
