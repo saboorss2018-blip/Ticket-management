@@ -11,44 +11,38 @@ body {
 }
 
 header {
+    height: 70px;
     background: #111827;
     color: white;
-    padding: 20px 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 7%;
 }
 
 .logo {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: bold;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin-left: 25px;
+    margin-left: 30px;
 }
 
 .hero {
-    min-height: 430px;
+    min-height: 450px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #4f46e5,
-            #9333ea
-        );
-
+    padding: 60px 8%;
     color: white;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
 }
 
 .hero h1 {
     font-size: 52px;
+    max-width: 700px;
     margin-bottom: 20px;
 }
 
@@ -57,68 +51,54 @@ nav a {
     margin-bottom: 30px;
 }
 
-.hero-button {
+.hero-btn {
+    display: inline-block;
     background: white;
     color: #4f46e5;
-    padding: 14px 30px;
+    padding: 14px 25px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
 }
 
-.events {
-    padding: 70px 8%;
+.events-section {
+    padding: 70px 7%;
 }
 
-.events h2 {
+.events-section h2,
+.about h2 {
     text-align: center;
-    font-size: 38px;
+    font-size: 35px;
 }
 
-.section-text {
+.section-subtitle {
     text-align: center;
     margin: 10px 0 40px;
     color: #666;
 }
 
-.event-container {
+.event-grid {
     display: grid;
-    grid-template-columns:
-        repeat(auto-fit, minmax(300px, 1fr));
-
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
 }
 
 .event-card {
     background: white;
-    border-radius: 15px;
+    border-radius: 12px;
     overflow: hidden;
-
-    box-shadow:
-        0 5px 25px rgba(0, 0, 0, 0.08);
-
-    transition: 0.3s;
-}
-
-.event-card:hover {
-    transform: translateY(-6px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
 .event-image {
-    height: 180px;
-
+    height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    font-size: 75px;
+    font-size: 70px;
 }
 
 .party {
-    background: #fef3c7;
-}
-
-.marriage {
     background: #fce7f3;
 }
 
@@ -126,12 +106,16 @@ nav a {
     background: #dbeafe;
 }
 
+.wedding {
+    background: #fef3c7;
+}
+
 .birthday {
     background: #dcfce7;
 }
 
 .cultural {
-    background: #f3e8ff;
+    background: #ede9fe;
 }
 
 .sports {
@@ -139,41 +123,28 @@ nav a {
 }
 
 .event-content {
-    padding: 25px;
+    padding: 22px;
 }
 
 .category {
     font-size: 12px;
-    font-weight: bold;
     color: #4f46e5;
+    font-weight: bold;
 }
 
 .event-content h3 {
-    margin: 10px 0;
+    margin: 8px 0;
     font-size: 22px;
 }
 
 .event-content p {
-    color: #666;
-    line-height: 1.5;
-    margin-bottom: 15px;
-}
-
-.event-info {
     margin: 8px 0;
-    color: #555;
+    color: #666;
 }
 
-.event-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.price {
-    font-size: 24px;
-    font-weight: bold;
+.event-content h4 {
+    font-size: 20px;
+    margin: 15px 0;
 }
 
 button {
@@ -183,162 +154,11 @@ button {
     padding: 12px 20px;
     border-radius: 7px;
     cursor: pointer;
-    font-weight: bold;
-}
-
-button:hover {
-    background: #3730a3;
-}
-
-
-/* MODAL */
-
-.modal {
-    display: none;
-
-    position: fixed;
-
-    z-index: 1000;
-
-    left: 0;
-    top: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background: rgba(0,0,0,0.6);
-
-    overflow: auto;
-}
-
-.modal-content {
-    background: white;
-
-    width: 90%;
-    max-width: 550px;
-
-    margin: 5% auto;
-
-    padding: 35px;
-
-    border-radius: 15px;
-
-    position: relative;
-}
-
-.close {
-    position: absolute;
-
-    right: 20px;
-    top: 15px;
-
-    font-size: 30px;
-
-    cursor: pointer;
-}
-
-.selected-event {
-    background: #f3f4f6;
-
-    padding: 20px;
-
-    margin: 20px 0;
-
-    border-radius: 10px;
-}
-
-form label {
-    display: block;
-
-    margin-top: 15px;
-
-    margin-bottom: 7px;
-
-    font-weight: bold;
-}
-
-form input {
-    width: 100%;
-
-    padding: 13px;
-
-    border: 1px solid #ddd;
-
-    border-radius: 7px;
-
     font-size: 15px;
 }
 
-.bill-preview {
-    margin-top: 25px;
-
-    padding: 20px;
-
-    background: #f9fafb;
-
-    border-radius: 10px;
-
-    line-height: 2;
-}
-
-.bill-preview span {
-    float: right;
-}
-
-.total {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.confirm-button {
-    width: 100%;
-    margin-top: 20px;
-    padding: 15px;
-}
-
-
-/* BILL */
-
-.bill {
-    background: white;
-
-    width: 90%;
-    max-width: 500px;
-
-    margin: 5% auto;
-
-    padding: 35px;
-
-    border-radius: 15px;
-
-    line-height: 2;
-}
-
-.bill h2,
-.bill h3 {
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-.success {
-    background: #dcfce7;
-
-    color: #166534;
-
-    text-align: center;
-
-    padding: 10px;
-
-    border-radius: 7px;
-
-    font-weight: bold;
-
-    margin-bottom: 20px;
-}
-
-.thank-you {
-    text-align: center;
-    margin: 20px 0;
+button:hover {
+    opacity: 0.9;
 }
 
 .about {
@@ -347,31 +167,82 @@ form input {
     text-align: center;
 }
 
-.about h2 {
+.about p {
+    margin-top: 15px;
+    color: #666;
+}
+
+/* Modal */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    overflow: auto;
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 30px;
+    border-radius: 12px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.modal-content h2 {
     margin-bottom: 20px;
 }
 
-footer {
-    background: #111827;
-    color: white;
-    text-align: center;
-    padding: 25px;
+.selected-event {
+    background: #f3f4f6;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
 
+#bookingForm label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
 
-@media(max-width:700px) {
+#bookingForm input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
 
-    .hero h1 {
-        font-size: 35px;
-    }
+#bookingForm button {
+    width: 100%;
+    margin-top: 20px;
+}
 
-    header {
-        flex-direction: column;
-        gap: 15px;
-    }
+.bill {
+    text-align: left;
+}
 
-    nav a {
-        margin: 0 8px;
-    }
+.bill h2:first-child {
+    text-align: center;
+}
 
+.bill button {
+    width: 100%;
+    margin-top: 15px;
 }

@@ -3,36 +3,35 @@ CREATE DATABASE IF NOT EXISTS eventdb;
 USE eventdb;
 
 
-CREATE TABLE events (
+CREATE TABLE IF NOT EXISTS events (
 
     id INT AUTO_INCREMENT PRIMARY KEY,
 
-    name VARCHAR(150) NOT NULL,
+    name VARCHAR(255) NOT NULL,
 
-    description VARCHAR(255),
+    description TEXT,
 
-    event_date VARCHAR(100),
+    event_date DATE,
 
-    location VARCHAR(100),
+    location VARCHAR(255),
 
     price DECIMAL(10,2) NOT NULL
-
 );
 
 
-CREATE TABLE bookings (
+CREATE TABLE IF NOT EXISTS bookings (
 
     id INT AUTO_INCREMENT PRIMARY KEY,
 
     booking_id VARCHAR(50) UNIQUE NOT NULL,
 
-    customer_name VARCHAR(100) NOT NULL,
+    customer_name VARCHAR(255) NOT NULL,
 
-    email VARCHAR(150) NOT NULL,
+    email VARCHAR(255) NOT NULL,
 
-    phone VARCHAR(20) NOT NULL,
+    phone VARCHAR(30) NOT NULL,
 
-    event_name VARCHAR(150) NOT NULL,
+    event_name VARCHAR(255) NOT NULL,
 
     quantity INT NOT NULL,
 
@@ -40,67 +39,58 @@ CREATE TABLE bookings (
 
     total_amount DECIMAL(10,2) NOT NULL,
 
-    booking_date TIMESTAMP
-        DEFAULT CURRENT_TIMESTAMP
-
+    booking_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 
 INSERT INTO events
-(
-    name,
-    description,
-    event_date,
-    location,
-    price
-)
-
+(name, description, event_date, location, price)
 VALUES
 
 (
-    'Grand Party Night',
-    'Music, dance and entertainment',
-    '20 September 2026',
-    'Hyderabad',
-    499
-),
-
-(
-    'Royal Wedding Event',
-    'Traditional wedding celebration',
-    '25 September 2026',
-    'Chennai',
+    'New Year Party',
+    'Celebrate with music and entertainment',
+    '2026-12-31',
+    'Mumbai',
     999
 ),
 
 (
     'Live Music Concert',
-    'Live music experience',
-    '02 October 2026',
+    'Enjoy an unforgettable live concert',
+    '2026-10-15',
     'Bangalore',
+    1499
+),
+
+(
+    'Wedding Celebration',
+    'Beautiful traditional wedding celebration',
+    '2026-11-20',
+    'Chennai',
     799
 ),
 
 (
-    'Birthday Celebration',
-    'Special birthday celebration',
-    '10 October 2026',
-    'Mumbai',
-    399
+    'Birthday Bash',
+    'Celebrate a special birthday',
+    '2026-10-05',
+    'Hyderabad',
+    499
 ),
 
 (
     'Cultural Festival',
-    'Traditional cultural event',
-    '15 October 2026',
+    'Experience culture and performances',
+    '2026-12-12',
     'Delhi',
-    299
+    699
 ),
 
 (
-    'Championship Match',
-    'Live sports competition',
-    '20 October 2026',
+    'Football Championship',
+    'Exciting football championship',
+    '2026-10-10',
     'Pune',
     599
 );

@@ -1,468 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>EventHub - Ticket Booking</title>
-
-    <link rel="stylesheet"
-          href="style.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventHub - Event Ticket Booking</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-
-    <div class="logo">
-        EventHub
-    </div>
+    <div class="logo">EventHub</div>
 
     <nav>
-
         <a href="#home">Home</a>
-
         <a href="#events">Events</a>
-
         <a href="#about">About</a>
-
     </nav>
-
 </header>
 
-
-<section class="hero" id="home">
-
+<section id="home" class="hero">
     <div>
-
-        <h1>Book Your Perfect Event</h1>
-
-        <p>
-            Discover events, choose your tickets,
-            and book them easily.
-        </p>
-
-        <a href="#events"
-           class="hero-button">
-
-            Browse Events
-
-        </a>
-
+        <h1>Book Your Next Experience</h1>
+        <p>Discover concerts, parties, sports, weddings and cultural events.</p>
+        <a href="#events" class="hero-btn">Explore Events</a>
     </div>
-
 </section>
 
-
-<section class="events" id="events">
+<section id="events" class="events-section">
 
     <h2>Upcoming Events</h2>
+    <p class="section-subtitle">Choose an event and book your tickets.</p>
 
-    <p class="section-text">
-        Choose an event and reserve your tickets.
-    </p>
-
-
-    <div class="event-container">
-
+    <div class="event-grid">
 
         <div class="event-card">
-
-            <div class="event-image party">
-                🎉
-            </div>
-
+            <div class="event-image party">🎉</div>
             <div class="event-content">
+                <span class="category">PARTY</span>
+                <h3>New Year Party</h3>
+                <p>Celebrate with music, dance and entertainment.</p>
+                <p>📅 31 December 2026</p>
+                <p>📍 Mumbai</p>
+                <h4>₹999 / ticket</h4>
 
-                <span class="category">
-                    PARTY
-                </span>
-
-                <h3>Grand Party Night</h3>
-
-                <p>
-                    Enjoy music, dance, food
-                    and entertainment.
-                </p>
-
-                <div class="event-info">
-                    📅 20 September 2026
-                </div>
-
-                <div class="event-info">
-                    📍 Hyderabad
-                </div>
-
-                <div class="event-bottom">
-
-                    <span class="price">
-                        ₹499
-                    </span>
-
-                    <button
-                        onclick="openBooking(
-                        'Grand Party Night',
-                        499,
-                        '20 September 2026',
-                        'Hyderabad')">
-
-                        Book Now
-
-                    </button>
-
-                </div>
-
+                <button onclick="openBooking('New Year Party', 999, '31 December 2026', 'Mumbai')">
+                    Book Now
+                </button>
             </div>
-
         </div>
 
-
         <div class="event-card">
-
-            <div class="event-image marriage">
-                💍
-            </div>
-
+            <div class="event-image concert">🎵</div>
             <div class="event-content">
-
-                <span class="category">
-                    MARRIAGE
-                </span>
-
-                <h3>Royal Wedding Event</h3>
-
-                <p>
-                    Experience a beautiful
-                    traditional wedding celebration.
-                </p>
-
-                <div class="event-info">
-                    📅 25 September 2026
-                </div>
-
-                <div class="event-info">
-                    📍 Chennai
-                </div>
-
-                <div class="event-bottom">
-
-                    <span class="price">
-                        ₹999
-                    </span>
-
-                    <button
-                        onclick="openBooking(
-                        'Royal Wedding Event',
-                        999,
-                        '25 September 2026',
-                        'Chennai')">
-
-                        Book Now
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="event-card">
-
-            <div class="event-image concert">
-                🎵
-            </div>
-
-            <div class="event-content">
-
-                <span class="category">
-                    CONCERT
-                </span>
-
+                <span class="category">CONCERT</span>
                 <h3>Live Music Concert</h3>
+                <p>Enjoy an unforgettable live music experience.</p>
+                <p>📅 15 October 2026</p>
+                <p>📍 Bangalore</p>
+                <h4>₹1499 / ticket</h4>
 
-                <p>
-                    Enjoy an unforgettable live
-                    music experience.
-                </p>
-
-                <div class="event-info">
-                    📅 02 October 2026
-                </div>
-
-                <div class="event-info">
-                    📍 Bangalore
-                </div>
-
-                <div class="event-bottom">
-
-                    <span class="price">
-                        ₹799
-                    </span>
-
-                    <button
-                        onclick="openBooking(
-                        'Live Music Concert',
-                        799,
-                        '02 October 2026',
-                        'Bangalore')">
-
-                        Book Now
-
-                    </button>
-
-                </div>
-
+                <button onclick="openBooking('Live Music Concert', 1499, '15 October 2026', 'Bangalore')">
+                    Book Now
+                </button>
             </div>
-
         </div>
 
-
         <div class="event-card">
-
-            <div class="event-image birthday">
-                🎂
-            </div>
-
+            <div class="event-image wedding">💍</div>
             <div class="event-content">
+                <span class="category">MARRIAGE</span>
+                <h3>Wedding Celebration</h3>
+                <p>A beautiful traditional wedding celebration.</p>
+                <p>📅 20 November 2026</p>
+                <p>📍 Chennai</p>
+                <h4>₹799 / ticket</h4>
 
-                <span class="category">
-                    BIRTHDAY
-                </span>
-
-                <h3>Birthday Celebration</h3>
-
-                <p>
-                    Celebrate your special day
-                    with friends and family.
-                </p>
-
-                <div class="event-info">
-                    📅 10 October 2026
-                </div>
-
-                <div class="event-info">
-                    📍 Mumbai
-                </div>
-
-                <div class="event-bottom">
-
-                    <span class="price">
-                        ₹399
-                    </span>
-
-                    <button
-                        onclick="openBooking(
-                        'Birthday Celebration',
-                        399,
-                        '10 October 2026',
-                        'Mumbai')">
-
-                        Book Now
-
-                    </button>
-
-                </div>
-
+                <button onclick="openBooking('Wedding Celebration', 799, '20 November 2026', 'Chennai')">
+                    Book Now
+                </button>
             </div>
-
         </div>
 
+        <div class="event-card">
+            <div class="event-image birthday">🎂</div>
+            <div class="event-content">
+                <span class="category">BIRTHDAY</span>
+                <h3>Birthday Bash</h3>
+                <p>Celebrate a special birthday with friends.</p>
+                <p>📅 5 October 2026</p>
+                <p>📍 Hyderabad</p>
+                <h4>₹499 / ticket</h4>
+
+                <button onclick="openBooking('Birthday Bash', 499, '5 October 2026', 'Hyderabad')">
+                    Book Now
+                </button>
+            </div>
+        </div>
 
         <div class="event-card">
-
-            <div class="event-image cultural">
-                🎭
-            </div>
-
+            <div class="event-image cultural">🎭</div>
             <div class="event-content">
-
-                <span class="category">
-                    CULTURAL
-                </span>
-
+                <span class="category">CULTURAL</span>
                 <h3>Cultural Festival</h3>
+                <p>Experience art, culture, food and performances.</p>
+                <p>📅 12 December 2026</p>
+                <p>📍 Delhi</p>
+                <h4>₹699 / ticket</h4>
 
-                <p>
-                    Experience traditional music,
-                    dance and culture.
-                </p>
-
-                <div class="event-info">
-                    📅 15 October 2026
-                </div>
-
-                <div class="event-info">
-                    📍 Delhi
-                </div>
-
-                <div class="event-bottom">
-
-                    <span class="price">
-                        ₹299
-                    </span>
-
-                    <button
-                        onclick="openBooking(
-                        'Cultural Festival',
-                        299,
-                        '15 October 2026',
-                        'Delhi')">
-
-                        Book Now
-
-                    </button>
-
-                </div>
-
+                <button onclick="openBooking('Cultural Festival', 699, '12 December 2026', 'Delhi')">
+                    Book Now
+                </button>
             </div>
-
         </div>
 
-
         <div class="event-card">
-
-            <div class="event-image sports">
-                ⚽
-            </div>
-
+            <div class="event-image sports">⚽</div>
             <div class="event-content">
+                <span class="category">SPORTS</span>
+                <h3>Football Championship</h3>
+                <p>Watch an exciting football championship.</p>
+                <p>📅 10 October 2026</p>
+                <p>📍 Pune</p>
+                <h4>₹599 / ticket</h4>
 
-                <span class="category">
-                    SPORTS
-                </span>
-
-                <h3>Championship Match</h3>
-
-                <p>
-                    Watch an exciting championship
-                    match live.
-                </p>
-
-                <div class="event-info">
-                    📅 20 October 2026
-                </div>
-
-                <div class="event-info">
-                    📍 Pune
-                </div>
-
-                <div class="event-bottom">
-
-                    <span class="price">
-                        ₹599
-                    </span>
-
-                    <button
-                        onclick="openBooking(
-                        'Championship Match',
-                        599,
-                        '20 October 2026',
-                        'Pune')">
-
-                        Book Now
-
-                    </button>
-
-                </div>
-
+                <button onclick="openBooking('Football Championship', 599, '10 October 2026', 'Pune')">
+                    Book Now
+                </button>
             </div>
-
         </div>
 
     </div>
-
 </section>
 
+<section id="about" class="about">
+    <h2>About EventHub</h2>
+    <p>
+        EventHub makes event discovery and ticket booking simple,
+        fast and convenient.
+    </p>
+</section>
 
-<!-- BOOKING MODAL -->
+<!-- Booking Modal -->
 
-<div id="bookingModal"
-     class="modal">
+<div id="bookingModal" class="modal">
 
     <div class="modal-content">
 
-        <span class="close"
-              onclick="closeBooking()">
-
-            &times;
-
-        </span>
-
+        <span class="close" onclick="closeBooking()">&times;</span>
 
         <h2>Book Your Ticket</h2>
 
-
         <div class="selected-event">
-
-            <h3 id="selectedEvent">
-                Event
-            </h3>
-
-            <p id="selectedDate">
-                Date
-            </p>
-
-            <p id="selectedLocation">
-                Location
-            </p>
-
+            <h3 id="selectedEvent"></h3>
+            <p id="selectedDate"></p>
+            <p id="selectedLocation"></p>
         </div>
-
 
         <form id="bookingForm">
 
-            <input type="hidden"
-                   id="eventName">
+            <input type="hidden" id="eventName">
+            <input type="hidden" id="ticketPrice">
 
-            <input type="hidden"
-                   id="ticketPrice">
+            <label>Full Name</label>
+            <input type="text" id="customerName" required>
 
+            <label>Email</label>
+            <input type="email" id="email" required>
 
-            <label>
-                Full Name
-            </label>
+            <label>Phone</label>
+            <input type="tel" id="phone" required>
 
-            <input
-                type="text"
-                id="customerName"
-                placeholder="Enter your full name"
-                required>
-
-
-            <label>
-                Email
-            </label>
-
-            <input
-                type="email"
-                id="email"
-                placeholder="example@gmail.com"
-                required>
-
-
-            <label>
-                Phone Number
-            </label>
-
-            <input
-                type="tel"
-                id="phone"
-                placeholder="Enter 10 digit phone number"
-                pattern="[0-9]{10}"
-                required>
-
-
-            <label>
-                Number of Tickets
-            </label>
-
+            <label>Number of Tickets</label>
             <input
                 type="number"
                 id="quantity"
@@ -470,150 +179,58 @@
                 max="10"
                 value="1"
                 onchange="calculateTotal()"
-                required>
+                oninput="calculateTotal()"
+                required
+            >
 
+            <p>Ticket Price: <strong id="displayPrice">₹0</strong></p>
 
-            <div class="bill-preview">
+            <p>
+                Quantity:
+                <strong id="displayQuantity">1</strong>
+            </p>
 
-                <div>
-                    Ticket Price:
-                    <span id="displayPrice">
-                        ₹0
-                    </span>
-                </div>
+            <h3>
+                Total:
+                <span id="totalAmount">₹0</span>
+            </h3>
 
-                <div>
-                    Quantity:
-                    <span id="displayQuantity">
-                        1
-                    </span>
-                </div>
-
-                <hr>
-
-                <div class="total">
-
-                    Total Amount:
-                    <span id="totalAmount">
-                        ₹0
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <button
-                type="submit"
-                class="confirm-button">
-
-                Confirm Booking
-
-            </button>
+            <button type="submit">Confirm Booking</button>
 
         </form>
 
     </div>
-
 </div>
 
+<!-- Bill Modal -->
 
-<!-- BILL MODAL -->
+<div id="billModal" class="modal">
 
-<div id="billModal"
-     class="modal">
+    <div class="modal-content bill">
 
-    <div class="bill">
+        <span class="close" onclick="closeBill()">&times;</span>
 
-        <h2>🎟️ EventHub</h2>
+        <h2>🎟 Booking Confirmed</h2>
 
-        <h3>Booking Confirmation</h3>
-
-        <div class="success">
-            Booking Successful!
-        </div>
+        <h3>Booking ID: <span id="billBookingId"></span></h3>
 
         <hr>
 
-        <p>
-            <strong>Booking ID:</strong>
-            <span id="billBookingId"></span>
-        </p>
+        <p><strong>Name:</strong> <span id="billName"></span></p>
+        <p><strong>Email:</strong> <span id="billEmail"></span></p>
+        <p><strong>Phone:</strong> <span id="billPhone"></span></p>
+        <p><strong>Event:</strong> <span id="billEvent"></span></p>
+        <p><strong>Tickets:</strong> <span id="billTickets"></span></p>
+        <p><strong>Price:</strong> ₹<span id="billPrice"></span></p>
 
-        <p>
-            <strong>Customer:</strong>
-            <span id="billName"></span>
-        </p>
+        <h2>Total: ₹<span id="billTotal"></span></h2>
 
-        <p>
-            <strong>Email:</strong>
-            <span id="billEmail"></span>
-        </p>
-
-        <p>
-            <strong>Phone:</strong>
-            <span id="billPhone"></span>
-        </p>
-
-        <p>
-            <strong>Event:</strong>
-            <span id="billEvent"></span>
-        </p>
-
-        <p>
-            <strong>Tickets:</strong>
-            <span id="billTickets"></span>
-        </p>
-
-        <p>
-            <strong>Price per Ticket:</strong>
-            ₹<span id="billPrice"></span>
-        </p>
-
-        <hr>
-
-        <h2>
-            Total:
-            ₹<span id="billTotal"></span>
-        </h2>
-
-        <p class="thank-you">
-            Thank you for booking with EventHub.
-        </p>
-
-        <button onclick="closeBill()">
-            Done
-        </button>
+        <button onclick="closeBill()">Done</button>
 
     </div>
-
 </div>
-
-
-<section class="about"
-         id="about">
-
-    <h2>About EventHub</h2>
-
-    <p>
-        EventHub makes event ticket booking
-        simple, fast and convenient.
-    </p>
-
-</section>
-
-
-<footer>
-
-    <p>
-        © 2026 EventHub | Event Ticket Management
-    </p>
-
-</footer>
-
 
 <script src="script.js"></script>
 
 </body>
-
 </html>

@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+
 import mysql.connector
 import os
 import uuid
+
 from prometheus_flask_exporter import PrometheusMetrics
 
 
@@ -17,26 +19,13 @@ def get_database():
 
     return mysql.connector.connect(
 
-        host=os.getenv(
-            "DB_HOST",
-            "mysql"
-        ),
+        host=os.getenv("DB_HOST", "mysql"),
 
-        user=os.getenv(
-            "DB_USER",
-            "eventuser"
-        ),
+        user=os.getenv("DB_USER", "eventuser"),
 
-        password=os.getenv(
-            "DB_PASSWORD",
-            "eventpass"
-        ),
+        password=os.getenv("DB_PASSWORD", "eventpass"),
 
-        database=os.getenv(
-            "DB_NAME",
-            "eventdb"
-        )
-
+        database=os.getenv("DB_NAME", "eventdb")
     )
 
 
@@ -53,13 +42,9 @@ def get_events():
 
     db = get_database()
 
-    cursor = db.cursor(
-        dictionary=True
-    )
+    cursor = db.cursor(dictionary=True)
 
-    cursor.execute(
-        "SELECT * FROM events"
-    )
+    cursor.execute("SELECT * FROM events")
 
     events = cursor.fetchall()
 
@@ -75,7 +60,6 @@ def book_ticket():
 
     data = request.get_json()
 
-
     name = data.get("name")
 
     email = data.get("email")
@@ -90,40 +74,35 @@ def book_ticket():
     if not name:
 
         return jsonify({
-            "message":
-            "Name is required"
+            "message": "Name is required"
         }), 400
 
 
     if not email:
 
         return jsonify({
-            "message":
-            "Email is required"
+            "message": "Email is required"
         }), 400
 
 
     if not phone:
 
         return jsonify({
-            "message":
-            "Phone is required"
+            "message": "Phone is required"
         }), 400
 
 
     if not event_name:
 
         return jsonify({
-            "message":
-            "Event is required"
+            "message": "Event is required"
         }), 400
 
 
     if not quantity:
 
         return jsonify({
-            "message":
-            "Ticket quantity is required"
+            "message": "Ticket quantity is required"
         }), 400
 
 
@@ -131,35 +110,27 @@ def book_ticket():
 
         quantity = int(quantity)
 
-    except ValueError:
+    except (ValueError, TypeError):
 
         return jsonify({
-            "message":
-            "Invalid ticket quantity"
+            "message": "Invalid ticket quantity"
         }), 400
 
 
     if quantity < 1 or quantity > 10:
 
         return jsonify({
-            "message":
-            "Tickets must be between 1 and 10"
+            "message": "Tickets must be between 1 and 10"
         }), 400
 
 
     db = get_database()
 
-    cursor = db.cursor(
-        dictionary=True
-    )
+    cursor = db.cursor(dictionary=True)
 
 
     cursor.execute(
-        """
-        SELECT price
-        FROM events
-        WHERE name = %s
-        """,
+        "SELECT price FROM events WHERE name = %s",
         (event_name,)
     )
 
@@ -174,22 +145,18 @@ def book_ticket():
         db.close()
 
         return jsonify({
-            "message":
-            "Event not found"
+            "message": "Event not found"
         }), 404
 
 
-    price = float(
-        event["price"]
-    )
-
+    price = float(event["price"])
 
     total = price * quantity
 
 
     booking_id = (
-        "EVT-"
-        + uuid.uuid4().hex[:8].upper()
+        "EVT-" +
+        uuid.uuid4().hex[:8].upper()
     )
 
 
@@ -225,7 +192,6 @@ def book_ticket():
 
     db.commit()
 
-
     cursor.close()
 
     db.close()
@@ -233,34 +199,23 @@ def book_ticket():
 
     return jsonify({
 
-        "message":
-        "Booking successful",
+        "message": "Booking successful",
 
-        "booking_id":
-        booking_id,
+        "booking_id": booking_id,
 
         "customer": {
-
             "name": name,
-
             "email": email,
-
             "phone": phone
-
         },
 
-        "event":
-        event_name,
+        "event": event_name,
 
-        "quantity":
-        quantity,
+        "quantity": quantity,
 
-        "price":
-        price,
+        "price": price,
 
-        "total":
-        total
-
+        "total": total
     })
 
 
